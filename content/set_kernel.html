@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -175,31 +175,43 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to Graph Machhine Learning Workshop
+                    Welcome to Graph Machine Learning Workshop
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Chapter00/chap01_intro_and_basics.html">Introduction to Graphs and Machine Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter00/chap01_intro_and_basics.html">Introduction to Graph Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter00/help.html">Step-by-Step Setup Guide: Anaconda, Virtual Environments, and Jupyter Kernel Configuration</a></li>
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter01/01_Introduction_Networkx.html">Chapter 1 : Introduction to Networkx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter01/03_Graphs_Benchmarks.html">Benchmark and Repositories</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter01/04_community_detection.html">Community Detection in Graphs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter02/01_embedding_examples.html">Chapter 2 : Embedding Examples</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter03/00_Unsupervised_Learning.html">Chapter 3 : Unsupervised machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter03/01_Shallow_Embeddings.html">Shallow embedding methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Chapter03/00_Unsupervised_Learning.html">Chapter 3 : Unsupervised Graph learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter03/01_Shallow_Embeddings.html">Shallow Embedding Methods</a></li>
+
+
 <li class="toctree-l2"><a class="reference internal" href="Chapter03/02_Autoencoders.html">AutoEncoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Chapter03/03_Structural_deep_neural_embeddings.html">Structural Deep Network Embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter03/04_Graph_Neural_Network.html">Unsupervised graph representation learning using Graph ConvNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter03/04_1GNN_Types.html">Graph Neural Network</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="Chapter03/04_2_Graph_Neural_Network.html">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter04/01_Feature_based_methods.html">Chapter 4 : Supervised Graph Learning</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Chapter05/01_link_prediction.html">Chapter 5: Problems with Machine Learning on Graphs</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Chapter06/01_Social_network_analysis.html">Chapter 6 : Machine learning on Social Netowrk Graphs</a></li>
 </ul>
 
     </div>
@@ -479,7 +491,10 @@ document.write(`
 ✔️ Updated: .\.ipynb_checkpoints\set_kernel-checkpoint.ipynb
 ✔️ Updated: .\Chapter00\chap01_intro_and_basics.ipynb
 ✔️ Updated: .\Chapter00\help.ipynb
+✔️ Updated: .\Chapter00\Untitled.ipynb
 ✔️ Updated: .\Chapter00\.ipynb_checkpoints\chap01_intro_and_basics-checkpoint.ipynb
+✔️ Updated: .\Chapter00\.ipynb_checkpoints\help-checkpoint.ipynb
+✔️ Updated: .\Chapter00\.ipynb_checkpoints\Untitled-checkpoint.ipynb
 ✔️ Updated: .\Chapter01\01_Introduction_Networkx.ipynb
 ✔️ Updated: .\Chapter01\02_Graph_metrics.ipynb
 ✔️ Updated: .\Chapter01\03_Graphs_Benchmarks.ipynb
@@ -491,29 +506,47 @@ document.write(`
 ✔️ Updated: .\Chapter03\00_Unsupervised_Learning.ipynb
 ✔️ Updated: .\Chapter03\01_Shallow_Embeddings.ipynb
 ✔️ Updated: .\Chapter03\02_Autoencoders.ipynb
+✔️ Updated: .\Chapter03\02_Autoencoders_temp.ipynb
 ✔️ Updated: .\Chapter03\03_Structural_deep_neural_embeddings.ipynb
-✔️ Updated: .\Chapter03\04_Graph_Neural_Network.ipynb
+✔️ Updated: .\Chapter03\04_1GNN_Types.ipynb
+✔️ Updated: .\Chapter03\04_2_Graph_Neural_Network.ipynb
 ✔️ Updated: .\Chapter03\.ipynb_checkpoints\00_Unsupervised_Learning-checkpoint.ipynb
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✔️ Updated: .\Chapter03\.ipynb_checkpoints\01_Shallow_Embeddings-checkpoint.ipynb
 ✔️ Updated: .\Chapter03\.ipynb_checkpoints\02_Autoencoders-checkpoint.ipynb
+✔️ Updated: .\Chapter03\.ipynb_checkpoints\02_Autoencoders_temp-checkpoint.ipynb
 ✔️ Updated: .\Chapter03\.ipynb_checkpoints\03_Structural_deep_neural_embeddings-checkpoint.ipynb
-✔️ Updated: .\Chapter03\.ipynb_checkpoints\04_Graph_Neural_Network-checkpoint.ipynb
+✔️ Updated: .\Chapter03\.ipynb_checkpoints\04_1GNN_Types-checkpoint.ipynb
+✔️ Updated: .\Chapter03\.ipynb_checkpoints\04_2_Graph_Neural_Network-checkpoint.ipynb
 ✔️ Updated: .\Chapter04\01_Feature_based_methods.ipynb
+✔️ Updated: .\Chapter04\01_Feature_based_methods_temp.ipynb
 ✔️ Updated: .\Chapter04\02_Shallow_embeddings.ipynb
-✔️ Updated: .\Chapter04\03_Graph_regularization_graph_neural_training.ipynb
-✔️ Updated: .\Chapter04\04_Graph_Neural_Networks.ipynb
-✔️ Updated: .\Chapter04\.ipynb_checkpoints\01_Feature_based_methods-checkpoint.ipynb
+✔️ Updated: .\Chapter04\03_Graph_Neural_Networks.ipynb
+✔️ Updated: .\Chapter04\03_nok_Graph_regularization_graph_neural_training.ipynb
+✔️ Updated: .\Chapter04\04_GNN_for_graph_regression.ipynb
+✔️ Updated: .\Chapter04\04_Graph_Neural_Networks_temp.ipynb
+✔️ Updated: .\Chapter04\05_GraphSAGE.ipynb
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✔️ Updated: .\Chapter04\.ipynb_checkpoints\01_Feature_based_methods-checkpoint.ipynb
+✔️ Updated: .\Chapter04\.ipynb_checkpoints\01_Feature_based_methods_temp-checkpoint.ipynb
 ✔️ Updated: .\Chapter04\.ipynb_checkpoints\02_Shallow_embeddings-checkpoint.ipynb
-✔️ Updated: .\Chapter04\.ipynb_checkpoints\03_Graph_regularization_graph_neural_training-checkpoint.ipynb
-✔️ Updated: .\Chapter04\.ipynb_checkpoints\04_Graph_Neural_Networks-checkpoint.ipynb
+✔️ Updated: .\Chapter04\.ipynb_checkpoints\03_Graph_Neural_Networks-checkpoint.ipynb
+✔️ Updated: .\Chapter04\.ipynb_checkpoints\03_nok_Graph_regularization_graph_neural_training-checkpoint.ipynb
+✔️ Updated: .\Chapter04\.ipynb_checkpoints\04_GNN_for_graph_regression-checkpoint.ipynb
+✔️ Updated: .\Chapter04\.ipynb_checkpoints\04_Graph_Neural_Networks_temp-checkpoint.ipynb
+✔️ Updated: .\Chapter04\.ipynb_checkpoints\05_GraphSAGE-checkpoint.ipynb
 ✔️ Updated: .\Chapter05\01_link_prediction.ipynb
 ✔️ Updated: .\Chapter05\02_community_detection_algorithms.ipynb
 ✔️ Updated: .\Chapter05\.ipynb_checkpoints\01_link_prediction-checkpoint.ipynb
 ✔️ Updated: .\Chapter05\.ipynb_checkpoints\02_community_detection_algorithms-checkpoint.ipynb
 ✔️ Updated: .\Chapter06\01_Social_network_analysis.ipynb
 ✔️ Updated: .\Chapter06\.ipynb_checkpoints\01_Social_network_analysis-checkpoint.ipynb
+✔️ Updated: .\exercise\Untitled.ipynb
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✔️ Updated: .\exercise\.ipynb_checkpoints\Untitled-checkpoint.ipynb
 </pre></div>
 </div>
 </div>

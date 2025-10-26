@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/Chapter02/01_embedding_examples';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Benchmark and Repositories" href="../Chapter01/03_Graphs_Benchmarks.html" />
+    <link rel="next" title="Chapter 3 : Unsupervised Graph learning" href="../Chapter03/00_Unsupervised_Learning.html" />
+    <link rel="prev" title="Community Detection in Graphs" href="../Chapter01/04_community_detection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,12 +193,25 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/01_Introduction_Networkx.html">Chapter 1 : Introduction to Networkx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/03_Graphs_Benchmarks.html">Benchmark and Repositories</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter01/04_community_detection.html">Community Detection in Graphs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2 : Embedding Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter03/00_Unsupervised_Learning.html">Chapter 3 : Unsupervised Graph learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/01_Shallow_Embeddings.html">Shallow Embedding Methods</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/02_Autoencoders.html">AutoEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/03_Structural_deep_neural_embeddings.html">Structural Deep Network Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_1GNN_Types.html">Graph Neural Network</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_2_Graph_Neural_Network.html">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter04/01_Feature_based_methods.html">Chapter 4 : Supervised Graph Learning</a></li>
+
 </ul>
 
     </div>
@@ -539,7 +553,7 @@ In a social network, Node2Vec can learn feature vectors for users based on their
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing transition probabilities:   0%|                                                       | 0/18 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing transition probabilities: 100%|██████████████████████████████████████████████████████| 18/18 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing transition probabilities: 100%|███████████████████████████████████████████| 18/18 [00:00&lt;00:00, 18337.98it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -548,19 +562,16 @@ In a social network, Node2Vec can learn feature vectors for users based on their
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):   0%|                                                                | 0/10 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  50%|████████████████████████████                            | 5/10 [00:00&lt;00:00, 48.14it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  60%|█████████████████████████████████▌                      | 6/10 [00:00&lt;00:00, 49.96it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1): 100%|███████████████████████████████████████████████████████| 10/10 [00:00&lt;00:00, 44.92it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1): 100%|███████████████████████████████████████████████████████| 10/10 [00:00&lt;00:00, 40.09it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1): 100%|███████████████████████████████████████████████████████| 10/10 [00:00&lt;00:00, 41.86it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<img alt="../../_images/74c72ced185fa70e7b1725c22702de9976cc35479cf3c66192b9cb5ef13441bf.png" src="../../_images/74c72ced185fa70e7b1725c22702de9976cc35479cf3c66192b9cb5ef13441bf.png" />
+<img alt="../../_images/2857d05c7410cb30a9e2e728ec0d0504983537b4cd43a7e7cf333840dcea6ec0.png" src="../../_images/2857d05c7410cb30a9e2e728ec0d0504983537b4cd43a7e7cf333840dcea6ec0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -578,7 +589,7 @@ In a social network, Node2Vec can learn feature vectors for users based on their
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/685a491190c2ef8c5726dc265de3f7e7e9c281d08818cb0f45a3336c60231bba.png" src="../../_images/685a491190c2ef8c5726dc265de3f7e7e9c281d08818cb0f45a3336c60231bba.png" />
+<img alt="../../_images/81868528897954fd82bcf4f411ed1925e89c088e2e46ad6fa9ce5a76d717157e.png" src="../../_images/81868528897954fd82bcf4f411ed1925e89c088e2e46ad6fa9ce5a76d717157e.png" />
 </div>
 </div>
 <p>Graph learning models such as GCN (Graph Convolutional Network), GraphSAGE, or GAT (Graph Attention Network) can capture information from a node’s neighborhood and generate expressive embeddings. These embeddings are then used for classification, clustering, or regression on the nodes.</p>
@@ -652,7 +663,7 @@ In a transaction network, Edge2Vec can be used to represent the interaction betw
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9679566ef2bd66812cd73aaf1462733b479ed8a57b6333f697f7cfa0186c3c48.png" src="../../_images/9679566ef2bd66812cd73aaf1462733b479ed8a57b6333f697f7cfa0186c3c48.png" />
+<img alt="../../_images/0a972f37bc6354cd6feae45b9ec09c59e65c7d147297ac508a9c20324f392f93.png" src="../../_images/0a972f37bc6354cd6feae45b9ec09c59e65c7d147297ac508a9c20324f392f93.png" />
 </div>
 </div>
 </section>
@@ -716,7 +727,7 @@ ref: <a class="reference external" href="https://distill.pub/2021/gnn-intro/">ht
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aee324613f87c38ef69850c4e3a7f37b61afee3d0a4518734954a6122456a645.png" src="../../_images/aee324613f87c38ef69850c4e3a7f37b61afee3d0a4518734954a6122456a645.png" />
+<img alt="../../_images/13db6e1cdd369aeb9540062153813e176b3baddb9bfea92a7e266591bc6ecd1d.png" src="../../_images/13db6e1cdd369aeb9540062153813e176b3baddb9bfea92a7e266591bc6ecd1d.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -784,13 +795,22 @@ ref: <a class="reference external" href="https://distill.pub/2021/gnn-intro/">ht
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Chapter01/03_Graphs_Benchmarks.html"
+       href="../Chapter01/04_community_detection.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Benchmark and Repositories</p>
+        <p class="prev-next-title">Community Detection in Graphs</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../Chapter03/00_Unsupervised_Learning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3 : Unsupervised Graph learning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

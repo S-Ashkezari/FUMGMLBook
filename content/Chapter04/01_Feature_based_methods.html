@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,10 +57,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/Chapter04/01_Feature_based_methods';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="🧠 Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)" href="../Chapter03/04_Graph_Neural_Network.html" />
+    <link rel="next" title="Shallow Embedding Methods – Label Propagation &amp; Label Spreading" href="02_Shallow_embeddings.html" />
+    <link rel="prev" title="Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)" href="../Chapter03/04_2_Graph_Neural_Network.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,9 +195,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/01_Introduction_Networkx.html">Chapter 1 : Introduction to Networkx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/03_Graphs_Benchmarks.html">Benchmark and Repositories</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter01/04_community_detection.html">Community Detection in Graphs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter02/01_embedding_examples.html">Chapter 2 : Embedding Examples</a></li>
@@ -204,7 +206,10 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../Chapter03/02_Autoencoders.html">AutoEncoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter03/03_Structural_deep_neural_embeddings.html">Structural Deep Network Embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_Graph_Neural_Network.html">🧠 Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_1GNN_Types.html">Graph Neural Network</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_2_Graph_Neural_Network.html">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4 : Supervised Graph Learning</a></li>
@@ -545,6 +550,8 @@ document.write(`
 <p>Classical feature-based supervised graph learning provides a foundational approach for tasks involving graph-structured data. Though gradually replaced by automated representation learning methods (e.g., Graph Neural Networks), it remains valuable for its interpretability and simplicity, especially in low-resource settings or as a baseline for comparison.</p>
 </section>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -578,13 +585,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Chapter03/04_Graph_Neural_Network.html"
+       href="../Chapter03/04_2_Graph_Neural_Network.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">🧠 Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</p>
+        <p class="prev-next-title">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="02_Shallow_embeddings.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Shallow Embedding Methods – Label Propagation &amp; Label Spreading</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

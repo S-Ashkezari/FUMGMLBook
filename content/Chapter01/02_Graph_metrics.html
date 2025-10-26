@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/Chapter01/02_Graph_metrics';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Benchmark and Repositories" href="03_Graphs_Benchmarks.html" />
-    <link rel="prev" title="Chapter 1 : Introduction to Networkx" href="01_Introduction_Networkx.html" />
+    <link rel="next" title="Community Detection in Graphs" href="04_community_detection.html" />
+    <link rel="prev" title="Step-by-Step Setup Guide: Anaconda, Virtual Environments, and Jupyter Kernel Configuration" href="../Chapter00/help.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,12 +195,25 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="01_Introduction_Networkx.html">Chapter 1 : Introduction to Networkx</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 1.2: Graph properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_Graphs_Benchmarks.html">Benchmark and Repositories</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Chapter 1.2: Graph properties</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_community_detection.html">Community Detection in Graphs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter02/01_embedding_examples.html">Chapter 2 : Embedding Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter03/00_Unsupervised_Learning.html">Chapter 3 : Unsupervised Graph learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/01_Shallow_Embeddings.html">Shallow Embedding Methods</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/02_Autoencoders.html">AutoEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/03_Structural_deep_neural_embeddings.html">Structural Deep Network Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_1GNN_Types.html">Graph Neural Network</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_2_Graph_Neural_Network.html">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter04/01_Feature_based_methods.html">Chapter 4 : Supervised Graph Learning</a></li>
+
 </ul>
 
     </div>
@@ -427,28 +440,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-metrics">Integration metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segregation-metrics">Segregation metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality-metrics">Centrality metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resilience-metrics">Resilience metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-integration-metrics">a) Integration metrics (یکپارچگی)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-segregation-metrics">b) Segregation metrics(تفکیک پذیری)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-centrality-metrics">c) Centrality metrics (مرکزیت)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-resilience-metrics">d) Resilience metrics (پایداری/تاب آوری)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-some-of-these-properties">Investigating some of these properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shortest-path">Shortest path</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-path-lenght">Characteristic path lenght</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency">Efficiency</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-example">Another example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-coefficient">Clustering coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-coefficient">Clustering Coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-count-triangles">Step 1: Count triangles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-count-connected-triples">Step 2: Count connected triples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-compute-transitivity">Step 3: Compute Transitivity</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality">Centrality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness centrality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">Betweenness centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">Betweenness Centrality</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assortativity">Assortativity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assortativity-and-influencers-in-social-networks">Assortativity and Influencers in Social Networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modularity">Modularity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transitivity">Transitivity</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assortativity-and-influencers-in-social-networks">Assortativity and Influencers in Social Networks</a></li>
 </ul>
             </nav>
         </div>
@@ -470,132 +484,65 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx==2.5 in c:\users\sashk\appdata\local\programs\python\python313\lib\site-packages (2.5)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting networkx==2.5
+  Using cached networkx-2.5-py3-none-any.whl.metadata (4.9 kB)
 Requirement already satisfied: decorator&gt;=4.3.0 in c:\users\sashk\appdata\local\programs\python\python313\lib\site-packages (from networkx==2.5) (5.2.1)
+Using cached networkx-2.5-py3-none-any.whl (1.6 MB)
+Installing collected packages: networkx
+  Attempting uninstall: networkx
+    Found existing installation: networkx 3.5
+    Uninstalling networkx-3.5:
+      Successfully uninstalled networkx-3.5
+Successfully installed networkx-2.5
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 25.1.1
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 25.2
 [notice] To update, run: python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting matplotlib==3.2.2
   Downloading matplotlib-3.2.2.tar.gz (40.3 MB)
      ---------------------------------------- 0.0/40.3 MB ? eta -:--:--
-     ---------------------------------------- 0.0/40.3 MB ? eta -:--:--
-     ---------------------------------------- 0.0/40.3 MB ? eta -:--:--
-     ---------------------------------------- 0.0/40.3 MB ? eta -:--:--
-     ---------------------------------------- 0.0/40.3 MB ? eta -:--:--
      ---------------------------------------- 0.3/40.3 MB ? eta -:--:--
-     ---------------------------------------- 0.3/40.3 MB ? eta -:--:--
-     ---------------------------------------- 0.3/40.3 MB ? eta -:--:--
-      -------------------------------------- 0.5/40.3 MB 450.1 kB/s eta 0:01:29
-      -------------------------------------- 0.5/40.3 MB 450.1 kB/s eta 0:01:29
-      -------------------------------------- 0.8/40.3 MB 565.0 kB/s eta 0:01:10
-      -------------------------------------- 0.8/40.3 MB 565.0 kB/s eta 0:01:10
-      -------------------------------------- 0.8/40.3 MB 565.0 kB/s eta 0:01:10
-     - ------------------------------------- 1.0/40.3 MB 491.0 kB/s eta 0:01:20
-     - ------------------------------------- 1.0/40.3 MB 491.0 kB/s eta 0:01:20
-     - ------------------------------------- 1.3/40.3 MB 516.8 kB/s eta 0:01:16
-     - ------------------------------------- 1.6/40.3 MB 566.7 kB/s eta 0:01:09
-     - ------------------------------------- 1.8/40.3 MB 598.2 kB/s eta 0:01:05
-     - ------------------------------------- 1.8/40.3 MB 598.2 kB/s eta 0:01:05
-     -- ------------------------------------ 2.1/40.3 MB 636.6 kB/s eta 0:01:01
-     -- ------------------------------------ 2.4/40.3 MB 669.1 kB/s eta 0:00:57
-     -- ------------------------------------ 2.6/40.3 MB 696.2 kB/s eta 0:00:55
-     -- ------------------------------------ 2.9/40.3 MB 713.1 kB/s eta 0:00:53
-     -- ------------------------------------ 2.9/40.3 MB 713.1 kB/s eta 0:00:53
-     --- ----------------------------------- 3.1/40.3 MB 721.1 kB/s eta 0:00:52
-     --- ----------------------------------- 3.1/40.3 MB 721.1 kB/s eta 0:00:52
-     --- ----------------------------------- 3.4/40.3 MB 698.6 kB/s eta 0:00:53
-     --- ----------------------------------- 3.4/40.3 MB 698.6 kB/s eta 0:00:53
-     --- ----------------------------------- 3.7/40.3 MB 698.0 kB/s eta 0:00:53
-     --- ----------------------------------- 3.9/40.3 MB 715.1 kB/s eta 0:00:51
-     ---- ---------------------------------- 4.2/40.3 MB 730.3 kB/s eta 0:00:50
-     ---- ---------------------------------- 4.5/40.3 MB 744.2 kB/s eta 0:00:49
-     ---- ---------------------------------- 4.5/40.3 MB 744.2 kB/s eta 0:00:49
-     ---- ---------------------------------- 4.7/40.3 MB 757.0 kB/s eta 0:00:47
-     ---- ---------------------------------- 5.0/40.3 MB 768.2 kB/s eta 0:00:46
-     ----- --------------------------------- 5.2/40.3 MB 779.0 kB/s eta 0:00:45
-     ----- --------------------------------- 5.5/40.3 MB 789.0 kB/s eta 0:00:45
-     ----- --------------------------------- 5.8/40.3 MB 792.8 kB/s eta 0:00:44
-     ----- --------------------------------- 5.8/40.3 MB 792.8 kB/s eta 0:00:44
-     ----- --------------------------------- 6.0/40.3 MB 801.7 kB/s eta 0:00:43
-     ------ -------------------------------- 6.3/40.3 MB 809.8 kB/s eta 0:00:42
-     ------ -------------------------------- 6.6/40.3 MB 817.4 kB/s eta 0:00:42
-     ------ -------------------------------- 6.8/40.3 MB 824.5 kB/s eta 0:00:41
-     ------ -------------------------------- 7.1/40.3 MB 831.4 kB/s eta 0:00:40
-     ------- ------------------------------- 7.3/40.3 MB 837.5 kB/s eta 0:00:40
-     ------- ------------------------------- 7.3/40.3 MB 837.5 kB/s eta 0:00:40
-     ------- ------------------------------- 7.6/40.3 MB 843.3 kB/s eta 0:00:39
-     ------- ------------------------------- 7.9/40.3 MB 849.1 kB/s eta 0:00:39
-     ------- ------------------------------- 8.1/40.3 MB 854.3 kB/s eta 0:00:38
-     -------- ------------------------------ 8.4/40.3 MB 859.4 kB/s eta 0:00:38
-     -------- ------------------------------ 8.7/40.3 MB 864.0 kB/s eta 0:00:37
-     -------- ------------------------------ 8.9/40.3 MB 868.5 kB/s eta 0:00:37
-     -------- ------------------------------ 8.9/40.3 MB 868.5 kB/s eta 0:00:37
-     -------- ------------------------------ 9.2/40.3 MB 872.7 kB/s eta 0:00:36
-     --------- ----------------------------- 9.4/40.3 MB 876.7 kB/s eta 0:00:36
-     --------- ----------------------------- 9.7/40.3 MB 880.7 kB/s eta 0:00:35
-     --------- ----------------------------- 9.7/40.3 MB 880.7 kB/s eta 0:00:35
-     --------- ----------------------------- 9.7/40.3 MB 880.7 kB/s eta 0:00:35
-     --------- ---------------------------- 10.5/40.3 MB 891.6 kB/s eta 0:00:34
-     --------- ---------------------------- 10.5/40.3 MB 891.6 kB/s eta 0:00:34
-     ---------- --------------------------- 10.7/40.3 MB 894.9 kB/s eta 0:00:34
-     ---------- --------------------------- 11.0/40.3 MB 897.6 kB/s eta 0:00:33
-     ---------- --------------------------- 11.3/40.3 MB 900.7 kB/s eta 0:00:33
-     ---------- --------------------------- 11.5/40.3 MB 903.9 kB/s eta 0:00:32
-     ----------- -------------------------- 11.8/40.3 MB 905.6 kB/s eta 0:00:32
-     ----------- -------------------------- 12.1/40.3 MB 908.3 kB/s eta 0:00:32
-     ----------- -------------------------- 12.1/40.3 MB 908.3 kB/s eta 0:00:32
-     ----------- -------------------------- 12.3/40.3 MB 910.9 kB/s eta 0:00:31
-     ----------- -------------------------- 12.3/40.3 MB 910.9 kB/s eta 0:00:31
-     ----------- -------------------------- 12.3/40.3 MB 910.9 kB/s eta 0:00:31
-     ------------ ------------------------- 13.1/40.3 MB 917.4 kB/s eta 0:00:30
-     ------------ ------------------------- 13.4/40.3 MB 920.2 kB/s eta 0:00:30
-     ------------ ------------------------- 13.6/40.3 MB 922.4 kB/s eta 0:00:29
-     ------------ ------------------------- 13.6/40.3 MB 922.4 kB/s eta 0:00:29
-     ------------- ------------------------ 13.9/40.3 MB 924.4 kB/s eta 0:00:29
-     ------------- ------------------------ 14.2/40.3 MB 926.4 kB/s eta 0:00:29
-     ------------- ------------------------ 14.4/40.3 MB 928.2 kB/s eta 0:00:28
-     ------------- ------------------------ 14.7/40.3 MB 930.2 kB/s eta 0:00:28
-     -------------- ----------------------- 14.9/40.3 MB 932.0 kB/s eta 0:00:28
-     -------------- ----------------------- 14.9/40.3 MB 932.0 kB/s eta 0:00:28
-     -------------- ----------------------- 15.2/40.3 MB 933.7 kB/s eta 0:00:27
-     -------------- ----------------------- 15.5/40.3 MB 935.2 kB/s eta 0:00:27
-     -------------- ----------------------- 15.7/40.3 MB 936.8 kB/s eta 0:00:27
-     --------------- ---------------------- 16.0/40.3 MB 938.4 kB/s eta 0:00:26
-     --------------- ---------------------- 16.3/40.3 MB 939.9 kB/s eta 0:00:26
-     --------------- ---------------------- 16.5/40.3 MB 941.4 kB/s eta 0:00:26
-     --------------- ---------------------- 16.5/40.3 MB 941.4 kB/s eta 0:00:26
-     --------------- ---------------------- 16.8/40.3 MB 942.8 kB/s eta 0:00:25
-     ---------------- --------------------- 17.0/40.3 MB 944.3 kB/s eta 0:00:25
-     ---------------- --------------------- 17.3/40.3 MB 945.6 kB/s eta 0:00:25
-     ---------------- --------------------- 17.6/40.3 MB 946.9 kB/s eta 0:00:25
-     ---------------- --------------------- 17.8/40.3 MB 948.3 kB/s eta 0:00:24
-     ----------------- -------------------- 18.1/40.3 MB 949.3 kB/s eta 0:00:24
-     ----------------- -------------------- 18.1/40.3 MB 949.3 kB/s eta 0:00:24
-     ----------------- -------------------- 18.4/40.3 MB 950.7 kB/s eta 0:00:24
-     ----------------- -------------------- 18.6/40.3 MB 951.7 kB/s eta 0:00:23
-     ----------------- -------------------- 18.9/40.3 MB 952.9 kB/s eta 0:00:23
-     ------------------ ------------------- 19.1/40.3 MB 954.1 kB/s eta 0:00:23
-     ------------------ ------------------- 19.4/40.3 MB 955.1 kB/s eta 0:00:22
-     ------------------ ------------------- 19.4/40.3 MB 955.1 kB/s eta 0:00:22
-     ------------------ ------------------- 19.7/40.3 MB 956.1 kB/s eta 0:00:22
-     ------------------ ------------------- 19.9/40.3 MB 957.2 kB/s eta 0:00:22
-     ------------------ ------------------- 19.9/40.3 MB 957.2 kB/s eta 0:00:22
-     ------------------- ------------------ 20.2/40.3 MB 949.4 kB/s eta 0:00:22
-     ------------------- ------------------ 20.4/40.3 MB 949.6 kB/s eta 0:00:21
-     ------------------- ------------------ 20.7/40.3 MB 952.3 kB/s eta 0:00:21
-     ------------------- ------------------ 21.0/40.3 MB 953.3 kB/s eta 0:00:21
-     ------------------- ------------------ 21.0/40.3 MB 953.3 kB/s eta 0:00:21
-     -------------------- ----------------- 21.2/40.3 MB 954.3 kB/s eta 0:00:20
-     -------------------- ----------------- 21.5/40.3 MB 955.4 kB/s eta 0:00:20
+      --------------------------------------- 0.8/40.3 MB 2.2 MB/s eta 0:00:19
+     - -------------------------------------- 1.0/40.3 MB 2.0 MB/s eta 0:00:20
+     - -------------------------------------- 1.3/40.3 MB 1.8 MB/s eta 0:00:23
+     - -------------------------------------- 1.8/40.3 MB 1.8 MB/s eta 0:00:22
+     -- ------------------------------------- 2.4/40.3 MB 1.9 MB/s eta 0:00:20
+     -- ------------------------------------- 2.6/40.3 MB 1.9 MB/s eta 0:00:20
+     -- ------------------------------------- 2.9/40.3 MB 1.9 MB/s eta 0:00:20
+     --- ------------------------------------ 3.4/40.3 MB 1.8 MB/s eta 0:00:21
+     --- ------------------------------------ 3.4/40.3 MB 1.8 MB/s eta 0:00:21
+     --- ------------------------------------ 3.9/40.3 MB 1.8 MB/s eta 0:00:21
+     ---- ----------------------------------- 4.2/40.3 MB 1.8 MB/s eta 0:00:21
+     ---- ----------------------------------- 4.7/40.3 MB 1.8 MB/s eta 0:00:20
+     ---- ----------------------------------- 5.0/40.3 MB 1.7 MB/s eta 0:00:21
+     ----- ---------------------------------- 5.5/40.3 MB 1.8 MB/s eta 0:00:20
+     ----- ---------------------------------- 6.0/40.3 MB 1.8 MB/s eta 0:00:19
+     ------ --------------------------------- 6.6/40.3 MB 1.9 MB/s eta 0:00:18
+     ------- -------------------------------- 7.1/40.3 MB 1.9 MB/s eta 0:00:18
+     ------- -------------------------------- 7.3/40.3 MB 1.9 MB/s eta 0:00:18
+     ------- -------------------------------- 7.6/40.3 MB 1.9 MB/s eta 0:00:18
+     -------- ------------------------------- 8.1/40.3 MB 1.9 MB/s eta 0:00:17
+     -------- ------------------------------- 8.4/40.3 MB 1.9 MB/s eta 0:00:17
+     -------- ------------------------------- 8.7/40.3 MB 1.9 MB/s eta 0:00:18
+     --------- ------------------------------ 9.4/40.3 MB 1.9 MB/s eta 0:00:17
+     --------- ------------------------------ 9.7/40.3 MB 1.9 MB/s eta 0:00:17
+     --------- ------------------------------ 10.0/40.3 MB 1.9 MB/s eta 0:00:16
+     ---------- ----------------------------- 10.5/40.3 MB 1.9 MB/s eta 0:00:16
+     ---------- ----------------------------- 10.7/40.3 MB 1.9 MB/s eta 0:00:16
+     ---------- ----------------------------- 11.0/40.3 MB 1.9 MB/s eta 0:00:16
+     ----------- ---------------------------- 11.5/40.3 MB 1.9 MB/s eta 0:00:16
+     ----------- ---------------------------- 11.8/40.3 MB 1.8 MB/s eta 0:00:16
+     ----------- ---------------------------- 12.1/40.3 MB 1.8 MB/s eta 0:00:16
+     ------------ --------------------------- 12.6/40.3 MB 1.8 MB/s eta 0:00:15
+     ------------- -------------------------- 13.1/40.3 MB 1.9 MB/s eta 0:00:15
+     ------------- -------------------------- 13.6/40.3 MB 1.9 MB/s eta 0:00:15
+     ------------- -------------------------- 13.9/40.3 MB 1.9 MB/s eta 0:00:14
+     -------------- ------------------------- 14.4/40.3 MB 1.9 MB/s eta 0:00:14
 </pre></div>
 </div>
 </div>
@@ -618,33 +565,34 @@ Requirement already satisfied: decorator&gt;=4.3.0 in c:\users\sashk\appdata\loc
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-2-graph-properties">
 <h1>Chapter 1.2: Graph properties<a class="headerlink" href="#chapter-1-2-graph-properties" title="Link to this heading">#</a></h1>
-<section id="integration-metrics">
-<h2>Integration metrics<a class="headerlink" href="#integration-metrics" title="Link to this heading">#</a></h2>
-<p>These measure how nodes tend to be interconnected with each
-other.</p>
+<p>Graph properties provide quantitative measures that characterize the structure and functionality of a network. They describe how nodes and edges are arranged and how information, influence, or resources can propagate through the system. These properties are typically grouped into four major categories—integration, segregation, centrality, and resilience metrics—each offering a distinct perspective on the network’s organization and behavior.</p>
+<section id="a-integration-metrics">
+<h2>a) Integration metrics (یکپارچگی)<a class="headerlink" href="#a-integration-metrics" title="Link to this heading">#</a></h2>
+<p>Integration metrics capture the overall connectedness of a network and evaluate how efficiently nodes can reach one another. They are primarily concerned with the ease of communication or flow across the entire system and reflect the network’s capacity to integrate information globally.</p>
 <p>Distance, path, and shortest path</p>
 <p>Characteristic path length</p>
 <p>Global and local efficiency</p>
 </section>
-<section id="segregation-metrics">
-<h2>Segregation metrics<a class="headerlink" href="#segregation-metrics" title="Link to this heading">#</a></h2>
-<p>These quantify the presence of groups of interconnected nodes, known as communities or modules, within a network.</p>
+<section id="b-segregation-metrics">
+<h2>b) Segregation metrics(تفکیک پذیری)<a class="headerlink" href="#b-segregation-metrics" title="Link to this heading">#</a></h2>
+<p>Segregation metrics describe the extent to which nodes form cohesive subgroups or modules within the network. They assess the degree of local clustering and reveal the presence of community structures that may correspond to specialized functions or localized interactions.</p>
 <p>Clustering coefficient</p>
 <p>Transitivity</p>
 <p>Modularity</p>
 </section>
-<section id="centrality-metrics">
-<h2>Centrality metrics<a class="headerlink" href="#centrality-metrics" title="Link to this heading">#</a></h2>
-<p>These assess the importance of individual nodes inside a network.</p>
+<section id="c-centrality-metrics">
+<h2>c) Centrality metrics (مرکزیت)<a class="headerlink" href="#c-centrality-metrics" title="Link to this heading">#</a></h2>
+<p>Centrality metrics identify the most influential or structurally significant nodes in a network. They provide insight into which nodes play key roles in maintaining connectivity, facilitating information transfer, or controlling the flow of interactions across the system.</p>
 <p>Degree centrality</p>
 <p>Closeness centrality</p>
 <p>Betweenness centrality</p>
 </section>
-<section id="resilience-metrics">
-<h2>Resilience metrics<a class="headerlink" href="#resilience-metrics" title="Link to this heading">#</a></h2>
-<p>These can be thought of as a measure of how much a network is able to maintain and adapt its operational performance when facing failures or
-other adverse conditions.</p>
-<p>(Assortativity coefficient)</p>
+<section id="d-resilience-metrics">
+<h2>d) Resilience metrics (پایداری/تاب آوری)<a class="headerlink" href="#d-resilience-metrics" title="Link to this heading">#</a></h2>
+<p>Resilience metrics assess the robustness of a network—its ability to maintain performance and structural integrity when subjected to failures, perturbations, or targeted attacks. These measures capture how networks adapt or degrade under adverse conditions, providing a quantitative understanding of stability and fault tolerance. Adverse conditions refer to situations such as node or edge failures, random noise, targeted attacks, or excessive load that can weaken the network’s connectivity and efficiency.</p>
+<p>Assortativity coefficient</p>
+<p>Network robustness indicators (e.g., size of the largest connected component, post-failure efficiency)</p>
+<p>Redundancy or fault-tolerance measures</p>
 </section>
 <section id="investigating-some-of-these-properties">
 <h2>Investigating some of these properties<a class="headerlink" href="#investigating-some-of-these-properties" title="Link to this heading">#</a></h2>
@@ -689,7 +637,8 @@ to all the possible paths between <span class="math notranslate nohighlight">\(i
     <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">coords</span> <span class="ow">in</span> <span class="n">pos_nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">pos_attrs</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">)</span>
         
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos_attrs</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">node_names</span><span class="p">,</span> <span class="n">font_family</span><span class="o">=</span><span class="s1">&#39;serif&#39;</span><span class="p">)</span>
+    <span class="n">node_labels</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">node_names</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()}</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos_attrs</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">node_labels</span><span class="p">,</span> <span class="n">font_family</span><span class="o">=</span><span class="s1">&#39;serif&#39;</span><span class="p">)</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">pos_nodes</span><span class="p">,</span><span class="n">edgelist</span><span class="o">=</span><span class="n">path_edges</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;#cc2f04&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
@@ -705,16 +654,6 @@ to all the possible paths between <span class="math notranslate nohighlight">\(i
 </div>
 <section id="shortest-path">
 <h3>Shortest path<a class="headerlink" href="#shortest-path" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
-<span class="n">nodes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Dublin&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Milan&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Rome&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Naples&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Moscow&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">}</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="example">
 <h3>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
@@ -722,7 +661,13 @@ to all the possible paths between <span class="math notranslate nohighlight">\(i
 highlighted):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">source</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">target</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Dublin&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Milan&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Rome&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Naples&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Moscow&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">}</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">source</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">target</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -740,14 +685,56 @@ highlighted):</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/965ad2deed6bba93ff3e3e561a4277d067d529b09185c513e19e267aec7345f4.png" src="../../_images/965ad2deed6bba93ff3e3e561a4277d067d529b09185c513e19e267aec7345f4.png" />
+<img alt="../../_images/bbe9a24190a1935d7a8f6646b2b50a01168a7e1288cad5b70f7ea32be3848c2a.png" src="../../_images/bbe9a24190a1935d7a8f6646b2b50a01168a7e1288cad5b70f7ea32be3848c2a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Dublin&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Milan&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Rome&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Naples&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Moscow&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">}</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># weighted Graph</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">700</span><span class="p">),</span>   <span class="c1"># Dublin-Paris</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1200</span><span class="p">),</span>  <span class="c1"># Dublin-Milan</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1100</span><span class="p">),</span>  <span class="c1"># Paris-Milan</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span>   <span class="c1"># Milan-Rome</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">225</span><span class="p">),</span>   <span class="c1"># Rome-Naples</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2500</span><span class="p">),</span>  <span class="c1"># Naples-Moscow</span>
+    <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7400</span><span class="p">),</span>  <span class="c1"># Moscow-Tokyo</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9700</span><span class="p">)</span>   <span class="c1"># Naples-Tokyo</span>
+<span class="p">]</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_weighted_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+
+<span class="c1"># shortest path (Dijkstera)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shortest path:&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># sum of weights</span>
+<span class="n">length</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total weight:&quot;</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+
+<span class="n">draw_enhanced_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">node_names</span><span class="o">=</span><span class="n">nodes</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;shortest_path_weightedGraph.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shortest path: [1, 3, 4, 5, 7]
+Total weight: 11725
+</pre></div>
+</div>
+<img alt="../../_images/6c3bfb28347caf74e3c4a604d4252cf92f2a882759db309d7a98e1986234ec9f.png" src="../../_images/6c3bfb28347caf74e3c4a604d4252cf92f2a882759db309d7a98e1986234ec9f.png" />
 </div>
 </div>
 </section>
 <section id="characteristic-path-lenght">
 <h3>Characteristic path lenght<a class="headerlink" href="#characteristic-path-lenght" title="Link to this heading">#</a></h3>
-<p>The characteristic path length is defined as the average of all the shortest path lengths
-between all possible pair of nodes. If <span class="math notranslate nohighlight">\(l_i\)</span> is the average path length between the node <span class="math notranslate nohighlight">\(i\)</span> and
+<p>The characteristic path length is defined as the <strong>average of all the shortest path lengths
+between all possible pair of nodes</strong>. If <span class="math notranslate nohighlight">\(l_i\)</span> is the average path length between the node <span class="math notranslate nohighlight">\(i\)</span> and
 all the other nodes, the characteristic path length is computed as follows:</p>
 <div class="math notranslate nohighlight">
 \[\displaystyle \frac{1}{q(q-1)} \sum_{i \in V} l_i\]</div>
@@ -769,21 +756,22 @@ all the other nodes, the characteristic path length is computed as follows:</p>
 </section>
 <section id="efficiency">
 <h3>Efficiency<a class="headerlink" href="#efficiency" title="Link to this heading">#</a></h3>
-<p><strong>Global efficiency</strong> is the average of the inverse shortest path length for all pairs of nodes.
-Such a metric can be seen as a measure of how efficiently information is exchanged
-across a network.</p>
-<p>Consider that <span class="math notranslate nohighlight">\(l_{ij}\)</span> is the shortest path between a node and a node . The
-network efficiency is defined as follows:</p>
+<p><strong>Global efficiency</strong> is the average of the inverse shortest path length for all pairs of nodes.<br />
+It provides a measure of how efficiently information can be exchanged across the network.</p>
+<p>Let <span class="math notranslate nohighlight">\(l_{ij}\)</span> denote the shortest path length between node (i) and node (j).<br />
+The global efficiency of a network with (q) nodes is defined as:</p>
 <div class="math notranslate nohighlight">
-\[
-\displaystyle \frac{1}{q(q - 1)} \sum_{\substack{i,j \in V}} \frac{1}{l_i}
-\]</div>
-<p>Efficiency is at a maximum when a graph is fully connected, while it is minimal for
-completely disconnected graphs. Intuitively, the shorter the path, the lower the measure.</p>
-<p>Global Efficiency indicates how quickly or directly information can be transmitted across the entire network.
-Unlike Characteristic Path Length, which focuses on the distances between nodes, this metric emphasizes the speed and efficiency of information transfer.</p>
-<p>The <strong>local efficiency</strong> of a node can be computed by considering only the neighborhood
-of the node in the calculation, without the node itself.</p>
+\[\begin{split}
+E_{glob} = \frac{1}{q(q-1)} \sum_{\substack{i,j \in V\\ i \neq j}} \frac{1}{l_{ij}}
+\end{split}\]</div>
+<blockquote>
+<div><p>⚠️ <strong>Note:</strong> For <strong>undirected networks</strong>, the correct normalization factor is <span class="math notranslate nohighlight">\(\frac{2}{q(q-1)}\)</span>, because each pair ((i,j)) is counted only once.</p>
+</div></blockquote>
+<p><span style="color:blue"> Global efficiency reaches its maximum when the network is fully connected, and is minimal for completely disconnected networks. </span>Intuitively, <strong>shorter paths increase efficiency</strong>.</p>
+<p>Global efficiency reflects how quickly or directly information can be transmitted across the entire network.<br />
+Unlike the Characteristic Path Length, which emphasizes distances, <strong>global efficiency</strong> highlights the <strong>speed and effectiveness of information transfer</strong>.</p>
+<p>The <strong>local efficiency</strong> of a node can be computed by considering only the subgraph formed by its neighbors, without including the node itself.<br />
+This measure reflects how well information is exchanged <strong>within the immediate neighborhood</strong> of the node.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
@@ -791,14 +779,14 @@ of the node in the calculation, without the node itself.</p>
 <span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">global_efficiency</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">local_efficiency</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Global efficiency:&quot;</span><span class="p">,</span><span class="n">nx</span><span class="o">.</span><span class="n">global_efficiency</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local efficiency:&quot;</span><span class="p">,</span><span class="n">nx</span><span class="o">.</span><span class="n">local_efficiency</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.611111111111111
-0.6666666666666667
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global efficiency: 0.611111111111111
+Local efficiency: 0.6666666666666667
 </pre></div>
 </div>
 </div>
@@ -830,7 +818,7 @@ making it less efficient:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7d2e0ecd1f9adaffa5deef73a3daf238dfa86d540d53e7083999c971dcaee594.png" src="../../_images/7d2e0ecd1f9adaffa5deef73a3daf238dfa86d540d53e7083999c971dcaee594.png" />
+<img alt="../../_images/fbcf6e5f37517c923afa8d56b1fe9621685a30f55d1cda4436116b0d89872e15.png" src="../../_images/fbcf6e5f37517c923afa8d56b1fe9621685a30f55d1cda4436116b0d89872e15.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -850,30 +838,32 @@ making it less efficient:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d3906e02c1dd582658272b614cba2f2c8dc1c02e6cf6c3cea28cc28b099b9710.png" src="../../_images/d3906e02c1dd582658272b614cba2f2c8dc1c02e6cf6c3cea28cc28b099b9710.png" />
+<img alt="../../_images/78ae911a7060203f474cf8a3c4ae9affda2c8b9cf70d059d8fe006010efcc547.png" src="../../_images/78ae911a7060203f474cf8a3c4ae9affda2c8b9cf70d059d8fe006010efcc547.png" />
 </div>
 </div>
 </section>
 <section id="clustering-coefficient">
-<h3>Clustering coefficient<a class="headerlink" href="#clustering-coefficient" title="Link to this heading">#</a></h3>
-<p>The clustering coefficient is a measure of how much nodes cluster together. It is defined
-as the fraction of triangles (complete subgraph of three nodes and three edges) around
-a node and is equivalent to the fraction of the node’s neighbors that are neighbors of
-each other.</p>
-<p>For a <strong>node’s clustering coefficient</strong>:</p>
-<p><span class="math notranslate nohighlight">\(
-C_v = \frac{\text{Number of triangles involving } v}{\frac{k(k - 1)}{2}}
-\)</span></p>
-<p>For the <strong>global clustering coefficient</strong> (for the entire graph), the formula is often computed as the average clustering coefficient of all nodes:</p>
-<p><span class="math notranslate nohighlight">\(
+<h3>Clustering Coefficient<a class="headerlink" href="#clustering-coefficient" title="Link to this heading">#</a></h3>
+<p>The <strong>clustering coefficient</strong> quantifies the tendency of nodes to form tightly connected groups within a network. It captures the extent to which a node’s neighbors are also connected to each other, reflecting the presence of local cohesiveness or triangular relationships.</p>
+<p>For a <strong>single node <span class="math notranslate nohighlight">\(v\)</span></strong>, the clustering coefficient is defined as the fraction of possible triangles through that node that actually exist:</p>
+<div class="math notranslate nohighlight">
+\[
+C_v = \frac{\text{Number of triangles involving } v}{\frac{k_v (k_v - 1)}{2}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_v\)</span> is the degree of node <span class="math notranslate nohighlight">\(v\)</span>, and the denominator represents the maximum number of possible edges between its neighbors.</p>
+<p>For the <strong>entire graph</strong>, the <strong>global clustering coefficient</strong> is often computed as the average over all nodes:</p>
+<div class="math notranslate nohighlight">
+\[
 C_{\text{global}} = \frac{1}{|V|} \sum_{v \in V} C_v
-\)</span></p>
-<p>In summary:</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(|V|\)</span> is the total number of nodes in the network.</p>
+<p><strong>Interpretation:</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(C_v = 1 \)</span>: Complete clustering among the neighbors</p></li>
-<li><p><span class="math notranslate nohighlight">\( C_v = 0 \)</span>: No clustering among the neighbors</p></li>
-<li><p><span class="math notranslate nohighlight">\( 0 &lt; C_v &lt; 1 \)</span>: Partial clustering among the neighbors</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_v = 1\)</span>: All neighbors of node <span class="math notranslate nohighlight">\(v\)</span> are fully connected, forming a complete clique.</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_v = 0\)</span>: No connections exist among the neighbors of <span class="math notranslate nohighlight">\(v\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(0 &lt; C_v &lt; 1\)</span>: Partial clustering exists among the neighbors.</p></li>
 </ul>
+<p>The clustering coefficient is a fundamental measure in network analysis, providing insights into the local cohesiveness and modular organization of networks. High clustering is often indicative of community structures or functional groupings in real-world networks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
@@ -925,9 +915,122 @@ key), the corresponding value</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3cd5797dc66a8a6832a714debd88b8550b7569c0f85134c643c40bc2385421af.png" src="../../_images/3cd5797dc66a8a6832a714debd88b8550b7569c0f85134c643c40bc2385421af.png" />
+<img alt="../../_images/1617684d4f63f67761e1e66be1afbaae264da41324005f8dc2f96d4824eb0935.png" src="../../_images/1617684d4f63f67761e1e66be1afbaae264da41324005f8dc2f96d4824eb0935.png" />
 </div>
 </div>
+<p><strong>Transitivity</strong><br />
+Transitivity is a global measure of clustering in the network. It quantifies the overall probability that two neighbors of a node are also neighbors of each other. Formally, it is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+  T = \frac{3 \times \text{Number of triangles in the network}}{\text{Number of connected triples of nodes}}
+  \]</div>
+<p>where a <strong>connected triple</strong> is a single node with edges to an unordered pair of other nodes.<br />
+<strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T = 1\)</span>: All possible triangles exist; the network is highly clustered.</p></li>
+<li><p><span class="math notranslate nohighlight">\(T = 0\)</span>: No triangles; no clustering in the network.</p></li>
+</ul>
+<p><strong>Example</strong>: Consider a small network with 4 nodes and the following edges:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">---</span> <span class="mi">2</span>
+<span class="o">|</span>  <span class="o">/</span>
+<span class="mi">3</span>
+<span class="o">|</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Edges:</strong> (1,2), (1,3), (2,3), (3,4)</p></li>
+<li><p>Nodes 1, 2, and 3 form a triangle. Node 4 is connected only to node 3.</p></li>
+</ul>
+<section id="step-1-count-triangles">
+<h4>Step 1: Count triangles<a class="headerlink" href="#step-1-count-triangles" title="Link to this heading">#</a></h4>
+<p>A <strong>triangle</strong> is a set of three nodes where each node is connected to the other two.</p>
+<ul class="simple">
+<li><p>Nodes 1, 2, and 3 form <strong>1 triangle</strong>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Number of triangles} = 1
+\]</div>
+</section>
+<section id="step-2-count-connected-triples">
+<h4>Step 2: Count connected triples<a class="headerlink" href="#step-2-count-connected-triples" title="Link to this heading">#</a></h4>
+<p>A <strong>connected triple</strong> is a node with edges to an unordered pair of other nodes.</p>
+<ul class="simple">
+<li><p>Node 1: neighbors = {2,3} → 1 triple: (2,1,3)</p></li>
+<li><p>Node 2: neighbors = {1,3} → 1 triple: (1,2,3)</p></li>
+<li><p>Node 3: neighbors = {1,2,4} → 3 triples: (1,3,2), (1,3,4), (2,3,4)</p></li>
+<li><p>Node 4: neighbors = {3} → 0 triples</p></li>
+</ul>
+<p><strong>Total connected triples = 1 + 1 + 3 + 0 = 5</strong></p>
+</section>
+<section id="step-3-compute-transitivity">
+<h4>Step 3: Compute Transitivity<a class="headerlink" href="#step-3-compute-transitivity" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{3 \times \text{Number of triangles}}{\text{Number of connected triples}} = \frac{3 \times 1}{5} = 0.6
+\]</div>
+<p><strong>Interpretation:</strong> There is a 60% probability that two neighbors of a node are connected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Dublin&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Milan&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Rome&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Naples&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Moscow&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">}</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">transitivity</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5454545454545454
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Modularity</strong><br />
+Modularity quantifies the strength of division of a network into communities or modules. It compares the actual density of edges within communities to the expected density if edges were randomly distributed. Formally, for a given partition of nodes:</p>
+<div class="math notranslate nohighlight">
+\[
+  Q = \frac{1}{2m} \sum_{i,j} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)
+  \]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A_{ij}\)</span> is the adjacency matrix,</p></li>
+<li><p><span class="math notranslate nohighlight">\(k_i\)</span> and <span class="math notranslate nohighlight">\(k_j\)</span> are the degrees of nodes <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the total number of edges in the network,</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_i\)</span> is the community assignment of node <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta(c_i, c_j) = 1\)</span> if <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are in the same community, 0 otherwise.</p></li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p>Higher <span class="math notranslate nohighlight">\(Q\)</span> indicates stronger community structure.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q \approx 0\)</span> implies the partition is no better than random.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx.algorithms.community</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx_comm</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Dublin&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Milan&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Rome&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Naples&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Moscow&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">}</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+
+<span class="c1"># partitions can be provided manually</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nx_comm</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">communities</span><span class="o">=</span><span class="p">[{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">},{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">}]))</span>
+
+<span class="c1"># or automatically computed using networkx</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nx_comm</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">nx_comm</span><span class="o">.</span><span class="n">label_propagation_communities</span><span class="p">(</span><span class="n">G</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3671875
+0.3671875
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="centrality">
 <h3>Centrality<a class="headerlink" href="#centrality" title="Link to this heading">#</a></h3>
@@ -1022,19 +1125,24 @@ the following command:</p>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/8bec2b3c6a807f7ac3d9cd406e693ff3626768ff1cefef04326338194cf1c378.png" src="../../_images/8bec2b3c6a807f7ac3d9cd406e693ff3626768ff1cefef04326338194cf1c378.png" />
+</div></div><img alt="../../_images/73def6ed510a654e3ce0dd507705f23c3dd7ccd9e1378c7fe52fde6784595091.png" src="../../_images/73def6ed510a654e3ce0dd507705f23c3dd7ccd9e1378c7fe52fde6784595091.png" />
 </div>
 </div>
 </section>
 <section id="closeness-centrality">
-<h3>Closeness centrality<a class="headerlink" href="#closeness-centrality" title="Link to this heading">#</a></h3>
-<p>The closeness centrality metric attempts to quantify how much a node is close (well connected) to other nodes. More formally, it refers to the average distance of a node to all other nodes in the network. If <span class="math notranslate nohighlight">\(l_{ij}\)</span> is the shortest path between node <span class="math notranslate nohighlight">\(i\)</span> and node <span class="math notranslate nohighlight">\(j\)</span>, the
-closeness centrality is defined as follows:</p>
+<h3>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Link to this heading">#</a></h3>
+<p>The <strong>closeness centrality</strong> metric quantifies how close or well-connected a node is to all other nodes in the network. Intuitively, a node with high closeness centrality can quickly interact with all other nodes, while a node with low closeness centrality is more distant from the rest of the network.</p>
+<p>Formally, let <span class="math notranslate nohighlight">\(l_{ij}\)</span> denote the shortest path distance between nodes <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>. The closeness centrality of node <span class="math notranslate nohighlight">\(i\)</span> is defined as:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\displaystyle \frac{1}{\sum_{\substack{i,j \in V \\ i \ne j}}l_i}
-\end{split}\]</div>
-<p>Here, V is the set of nodes in the graph.</p>
+\[
+C_i = \frac{1}{\sum_{j \in V, j \ne i} l_{ij}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(V\)</span> is the set of all nodes in the network.</p>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p>Higher <span class="math notranslate nohighlight">\(C_i\)</span> indicates that node <span class="math notranslate nohighlight">\(i\)</span> is, on average, <strong>closer to all other nodes</strong>, facilitating faster information flow.</p></li>
+<li><p>Lower <span class="math notranslate nohighlight">\(C_i\)</span> indicates that node <span class="math notranslate nohighlight">\(i\)</span> is more <strong>peripheral</strong> in the network structure.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
@@ -1106,21 +1214,24 @@ closeness centrality is defined as follows:</p>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/12629b644e89aecf826c5a6b7b58e42414a19656e6009cc15a910d14c93a9743.png" src="../../_images/12629b644e89aecf826c5a6b7b58e42414a19656e6009cc15a910d14c93a9743.png" />
+</div></div><img alt="../../_images/b20b79419f6082f2502a9c60e79e8d18c8d0cd8265b7c4674e11ed3b41af487e.png" src="../../_images/b20b79419f6082f2502a9c60e79e8d18c8d0cd8265b7c4674e11ed3b41af487e.png" />
 </div>
 </div>
 </section>
 <section id="betweenness-centrality">
-<h3>Betweenness centrality<a class="headerlink" href="#betweenness-centrality" title="Link to this heading">#</a></h3>
-<p>The betweenness centrality metric evaluates how much a node acts as a <strong>bridge</strong> between
-other nodes. Even if poorly connected, a node can be strategically connected, helping to
-keep the whole network connected.</p>
-<p>If <span class="math notranslate nohighlight">\(L_{wj}\)</span> is the total number of shortest paths between node <span class="math notranslate nohighlight">\(w\)</span> and node <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(L_{wj}(i)\)</span> is
-the total number of shortest paths between <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(j\)</span> passing through node <span class="math notranslate nohighlight">\(i\)</span>, then the
-betweenness centrality is defined as follows:</p>
+<h3>Betweenness Centrality<a class="headerlink" href="#betweenness-centrality" title="Link to this heading">#</a></h3>
+<p>The <strong>betweenness centrality</strong> metric measures the extent to which a node acts as a <strong>bridge</strong> or intermediary between other nodes in the network. A node may have few direct connections but still play a crucial role in maintaining network connectivity by lying on many shortest paths between other nodes.</p>
+<p>Formally, let <span class="math notranslate nohighlight">\(L_{wj}\)</span> be the total number of shortest paths between nodes <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, and let <span class="math notranslate nohighlight">\(L_{wj}(i)\)</span> be the number of those paths that pass through node <span class="math notranslate nohighlight">\(i\)</span>. The betweenness centrality of node <span class="math notranslate nohighlight">\(i\)</span> is defined as:</p>
 <div class="math notranslate nohighlight">
-\[ \sum_{i \ne j \ne w}\frac{L_{wj}(i)}{L_{wj}}
-\]</div>
+\[\begin{split}
+C_B(i) = \sum_{\substack{w,j \in V \\ w \ne j \ne i}} \frac{L_{wj}(i)}{L_{wj}}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(V\)</span> is the set of nodes in the network.</p>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p>Higher <span class="math notranslate nohighlight">\(C_B(i)\)</span> indicates that node <span class="math notranslate nohighlight">\(i\)</span> frequently lies on shortest paths connecting other nodes, making it <strong>structurally important</strong> for communication and flow in the network.</p></li>
+<li><p>Nodes with low betweenness centrality do not significantly control or mediate information flow between other nodes.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
@@ -1192,7 +1303,7 @@ betweenness centrality is defined as follows:</p>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/93e546bdc572f9d5986d9cdae0a7c72382eb1f9d8b6929bdb7760e640302a6bc.png" src="../../_images/93e546bdc572f9d5986d9cdae0a7c72382eb1f9d8b6929bdb7760e640302a6bc.png" />
+</div></div><img alt="../../_images/ee57f373a39d7598929d59df791ec18ec353ff7d76c1b1c6d2a295420c4702aa.png" src="../../_images/ee57f373a39d7598929d59df791ec18ec353ff7d76c1b1c6d2a295420c4702aa.png" />
 </div>
 </div>
 <p>Milan and Naples have the highest degree centrality.</p>
@@ -1241,7 +1352,7 @@ command:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/70bbcef4f799ca5496ae02f990277f035655f80749fc74a9bcf6cd83c3aff905.png" src="../../_images/70bbcef4f799ca5496ae02f990277f035655f80749fc74a9bcf6cd83c3aff905.png" />
+<img alt="../../_images/42844f1b13ce3e330ffc102237458e30393614bf6821468b8e6322de7069a075.png" src="../../_images/42844f1b13ce3e330ffc102237458e30393614bf6821468b8e6322de7069a075.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1251,59 +1362,7 @@ command:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.7500000000000001
-</pre></div>
-</div>
-</div>
-</div>
-<section id="modularity">
-<h3>Modularity<a class="headerlink" href="#modularity" title="Link to this heading">#</a></h3>
-<p>Modularity measures how well a network is divided into communities—groups of nodes with dense internal connections and few links between groups.</p>
-<p>For example, in a social network like Reddit, users in a gaming community interact mostly with each other and less with users in unrelated communities, like fashion.
-Unlike many other metrics, modularity is usually calculated using optimization algorithms.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx.algorithms.community</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx_comm</span>
-
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
-<span class="n">nodes</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Dublin&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Milan&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Rome&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Naples&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Moscow&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">}</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">),(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
-
-<span class="c1"># partitions can be provided manually</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nx_comm</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">communities</span><span class="o">=</span><span class="p">[{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">},{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">}]))</span>
-
-<span class="c1"># or automatically computed using networkx</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nx_comm</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">nx_comm</span><span class="o">.</span><span class="n">label_propagation_communities</span><span class="p">(</span><span class="n">G</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3671875
-0.3671875
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="transitivity">
-<h3>Transitivity<a class="headerlink" href="#transitivity" title="Link to this heading">#</a></h3>
-<p>Transitivity is a global form of the clustering coefficient. It measures how often connected triples of nodes form triangles.</p>
-<p>A triplet is any group of three nodes:</p>
-<p>Open triplet: Two edges form a path of three nodes.</p>
-<p>Closed triplet: All three nodes are connected (a triangle).</p>
-<ul class="simple">
-<li><p>High transitivity (<span class="math notranslate nohighlight">\(~1\)</span>) means nodes often form triangles—indicating strong clustering and community structure.</p></li>
-<li><p>Low transitivity (<span class="math notranslate nohighlight">\(~0\)</span>) means few triangles—suggesting weak or sparse connections in the network.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">transitivity</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5454545454545454
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.7499999999999998
 </pre></div>
 </div>
 </div>
@@ -1312,7 +1371,8 @@ Unlike many other metrics, modularity is usually calculated using optimization a
 <p>All implemented algorithms in networkx:</p>
 <p><a class="reference external" href="https://networkx.org/documentation/stable/reference/algorithms/">https://networkx.org/documentation/stable/reference/algorithms/</a></p>
 </section>
-</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1324,16 +1384,16 @@ Unlike many other metrics, modularity is usually calculated using optimization a
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "mlgbook"
+            mode: "mlgbookpro"
         },
         kernelOptions: {
-            name: "mlgbook",
+            name: "mlgbookpro",
             path: "./content\Chapter01"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'mlgbook'</script>
+    <script>kernelName = 'mlgbookpro'</script>
 
                 </article>
               
@@ -1346,20 +1406,20 @@ Unlike many other metrics, modularity is usually calculated using optimization a
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="01_Introduction_Networkx.html"
+       href="../Chapter00/help.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 1 : Introduction to Networkx</p>
+        <p class="prev-next-title">Step-by-Step Setup Guide: Anaconda, Virtual Environments, and Jupyter Kernel Configuration</p>
       </div>
     </a>
     <a class="right-next"
-       href="03_Graphs_Benchmarks.html"
+       href="04_community_detection.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Benchmark and Repositories</p>
+        <p class="prev-next-title">Community Detection in Graphs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1379,28 +1439,29 @@ Unlike many other metrics, modularity is usually calculated using optimization a
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-metrics">Integration metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segregation-metrics">Segregation metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality-metrics">Centrality metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resilience-metrics">Resilience metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-integration-metrics">a) Integration metrics (یکپارچگی)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-segregation-metrics">b) Segregation metrics(تفکیک پذیری)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-centrality-metrics">c) Centrality metrics (مرکزیت)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-resilience-metrics">d) Resilience metrics (پایداری/تاب آوری)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-some-of-these-properties">Investigating some of these properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shortest-path">Shortest path</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-path-lenght">Characteristic path lenght</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency">Efficiency</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-example">Another example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-coefficient">Clustering coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-coefficient">Clustering Coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-count-triangles">Step 1: Count triangles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-count-connected-triples">Step 2: Count connected triples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-compute-transitivity">Step 3: Compute Transitivity</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality">Centrality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness centrality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">Betweenness centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">Betweenness Centrality</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assortativity">Assortativity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assortativity-and-influencers-in-social-networks">Assortativity and Influencers in Social Networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modularity">Modularity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transitivity">Transitivity</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assortativity-and-influencers-in-social-networks">Assortativity and Influencers in Social Networks</a></li>
 </ul>
   </nav></div>
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/Chapter03/03_Structural_deep_neural_embeddings';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="🧠 Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)" href="04_Graph_Neural_Network.html" />
+    <link rel="next" title="Graph Neural Network" href="04_1GNN_Types.html" />
     <link rel="prev" title="AutoEncoder" href="02_Autoencoders.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,9 +195,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/01_Introduction_Networkx.html">Chapter 1 : Introduction to Networkx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/03_Graphs_Benchmarks.html">Benchmark and Repositories</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter01/04_community_detection.html">Community Detection in Graphs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter02/01_embedding_examples.html">Chapter 2 : Embedding Examples</a></li>
@@ -207,7 +206,10 @@
 
 <li class="toctree-l2"><a class="reference internal" href="02_Autoencoders.html">AutoEncoder</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Structural Deep Network Embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_Graph_Neural_Network.html">🧠 Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_1GNN_Types.html">Graph Neural Network</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="04_2_Graph_Neural_Network.html">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter04/01_Feature_based_methods.html">Chapter 4 : Supervised Graph Learning</a></li>
@@ -974,26 +976,41 @@ Graph Info: 34 nodes, 78 edges
 Model parameters: 367,266
 
 Starting training...
-Epoch    0 | Total: 4.211989 | Recon: 1.270017 | First: 287.471191 | Reg: 156.372086
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch   50 | Total: 1.032865 | Recon: 0.943616 | First: 4.578772 | Reg: 158.568008
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch    0 | Total: 1.199785 | Recon: 0.303029 | First: 83.174042 | Reg: 156.339584
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  100 | Total: 0.983725 | Recon: 0.899563 | First: 4.194881 | Reg: 159.889252
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch   50 | Total: 0.119898 | Recon: 0.086338 | First: 0.774399 | Reg: 158.269470
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  150 | Total: 0.986718 | Recon: 0.891702 | First: 5.307707 | Reg: 160.728638
-Epoch 00152: reducing learning rate of group 0 to 8.0000e-04.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  100 | Total: 0.113346 | Recon: 0.073188 | First: 1.229149 | Reg: 158.152771
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  200 | Total: 0.954637 | Recon: 0.863276 | First: 5.096321 | Reg: 161.223419
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  150 | Total: 0.101937 | Recon: 0.061719 | First: 1.176489 | Reg: 157.986359
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  250 | Total: 0.913964 | Recon: 0.837067 | First: 3.799259 | Reg: 161.626984
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  200 | Total: 0.099932 | Recon: 0.062613 | First: 0.954483 | Reg: 157.829239
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 00257: reducing learning rate of group 0 to 6.4000e-04.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch  250 | Total: 0.107667 | Recon: 0.069674 | First: 0.920633 | Reg: 157.578079
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Early stopping at epoch 275
+</pre></div>
+</div>
+<img alt="../../_images/c721dcc96e676c9f4194b71bcb4c1b6b328e8c05e3c16ec4ef628fe4d284b2e9.png" src="../../_images/c721dcc96e676c9f4194b71bcb4c1b6b328e8c05e3c16ec4ef628fe4d284b2e9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================
+RECONSTRUCTION EVALUATION RESULTS
+==================================================
+Mean Squared Error: 0.050491
+Binary Accuracy: 0.9308
+Precision: 0.9043
+Recall: 0.5449
+F1-Score: 0.6800
+Original Edges: 156
+Reconstructed Edges: 94
+Correctly Reconstructed Edges: 85
 </pre></div>
 </div>
 </div>
@@ -1011,16 +1028,16 @@ Epoch 00152: reducing learning rate of group 0 to 8.0000e-04.
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "mlgbookpro"
+            mode: "mlgbook"
         },
         kernelOptions: {
-            name: "mlgbookpro",
+            name: "mlgbook",
             path: "./content\Chapter03"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'mlgbookpro'</script>
+    <script>kernelName = 'mlgbook'</script>
 
                 </article>
               
@@ -1042,11 +1059,11 @@ Epoch 00152: reducing learning rate of group 0 to 8.0000e-04.
       </div>
     </a>
     <a class="right-next"
-       href="04_Graph_Neural_Network.html"
+       href="04_1GNN_Types.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🧠 Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</p>
+        <p class="prev-next-title">Graph Neural Network</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

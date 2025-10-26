@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,8 +60,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/Chapter01/03_Graphs_Benchmarks';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Chapter 2 : Embedding Examples" href="../Chapter02/01_embedding_examples.html" />
-    <link rel="prev" title="Chapter 1.2: Graph properties" href="02_Graph_metrics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,7 +177,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter00/chap01_intro_and_basics.html">Introduction to Graph Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter00/help.html">Step-by-Step Setup Guide: Anaconda, Virtual Environments, and Jupyter Kernel Configuration</a></li>
 
@@ -193,12 +191,25 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="01_Introduction_Networkx.html">Chapter 1 : Introduction to Networkx</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="02_Graph_metrics.html">Chapter 1.2: Graph properties</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Benchmark and Repositories</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Graph_metrics.html">Chapter 1.2: Graph properties</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_community_detection.html">Community Detection in Graphs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter02/01_embedding_examples.html">Chapter 2 : Embedding Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter03/00_Unsupervised_Learning.html">Chapter 3 : Unsupervised Graph learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/01_Shallow_Embeddings.html">Shallow Embedding Methods</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/02_Autoencoders.html">AutoEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/03_Structural_deep_neural_embeddings.html">Structural Deep Network Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_1GNN_Types.html">Graph Neural Network</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Chapter03/04_2_Graph_Neural_Network.html">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter04/01_Feature_based_methods.html">Chapter 4 : Supervised Graph Learning</a></li>
+
 </ul>
 
     </div>
@@ -558,7 +569,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2faa655e7a3d98a10cc595032c061ff7db307f200e2d45aa6f1b70ca7d096618.png" src="../../_images/2faa655e7a3d98a10cc595032c061ff7db307f200e2d45aa6f1b70ca7d096618.png" />
+<img alt="../../_images/0cd064c742b81d3cf853395ebcff2b78768226be22b75ca27c21b48cfd397b97.png" src="../../_images/0cd064c742b81d3cf853395ebcff2b78768226be22b75ca27c21b48cfd397b97.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -620,7 +631,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total Nodes: 35
-Total Edges: 94
+Total Edges: 95
 </pre></div>
 </div>
 </div>
@@ -632,7 +643,7 @@ Total Edges: 94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e8ce7caf5a4d84fb5dc22c9f4964bd48f24e695641df7b7f4c13452951f59d85.png" src="../../_images/e8ce7caf5a4d84fb5dc22c9f4964bd48f24e695641df7b7f4c13452951f59d85.png" />
+<img alt="../../_images/c538952623747326960504d1a515ae0825085228b9ea0a6c4680c311bcc9338b.png" src="../../_images/c538952623747326960504d1a515ae0825085228b9ea0a6c4680c311bcc9338b.png" />
 </div>
 </div>
 <section id="model-barabasi-albert">
@@ -652,7 +663,7 @@ Total Edges: 94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/948ed878dc96418ad38ee34639e52cb3209cf0d169c35538a8ebf6a4be1b4e83.png" src="../../_images/948ed878dc96418ad38ee34639e52cb3209cf0d169c35538a8ebf6a4be1b4e83.png" />
+<img alt="../../_images/da7fe3a03a9260b1915a42ff363cbf0dfdeb328763123468a87f663b960341fc.png" src="../../_images/da7fe3a03a9260b1915a42ff363cbf0dfdeb328763123468a87f663b960341fc.png" />
 </div>
 </div>
 <p>We analyse large Barabasi-Albert graphs to investigate their ability to generate power-law distribution for the degree of node</p>
@@ -701,7 +712,7 @@ Total Edges: 94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b8bf074e48fa9ad845e0a5f08ce9314c604233f2f043377c16fca4175f24bd38.png" src="../../_images/b8bf074e48fa9ad845e0a5f08ce9314c604233f2f043377c16fca4175f24bd38.png" />
+<img alt="../../_images/5f7d0ab1d067e85ec05abeb59fc815b92623e6368c0725fb82164e897a409ffd.png" src="../../_images/5f7d0ab1d067e85ec05abeb59fc815b92623e6368c0725fb82164e897a409ffd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -715,7 +726,7 @@ Total Edges: 94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/39acfb1d310b3a4ccec2d923ab9b5654b6fd0bf1916b02d447786b058039c989.png" src="../../_images/39acfb1d310b3a4ccec2d923ab9b5654b6fd0bf1916b02d447786b058039c989.png" />
+<img alt="../../_images/a373b44bd99a6686c015eedbf194a4306a70536e266b4586d43a147e16613260.png" src="../../_images/a373b44bd99a6686c015eedbf194a4306a70536e266b4586d43a147e16613260.png" />
 </div>
 </div>
 <p>Other simple graph Benchmarks</p>
@@ -1105,24 +1116,6 @@ Total Edges: 94
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="02_Graph_metrics.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 1.2: Graph properties</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../Chapter02/01_embedding_examples.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 2 : Embedding Examples</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

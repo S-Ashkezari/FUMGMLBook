@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -195,9 +195,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/01_Introduction_Networkx.html">Chapter 1 : Introduction to Networkx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter01/03_Graphs_Benchmarks.html">Benchmark and Repositories</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter01/02_Graph_metrics.html">Chapter 1.2: Graph properties</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter01/04_community_detection.html">Community Detection in Graphs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter02/01_embedding_examples.html">Chapter 2 : Embedding Examples</a></li>
@@ -207,7 +206,10 @@
 
 <li class="toctree-l2"><a class="reference internal" href="02_Autoencoders.html">AutoEncoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_Structural_deep_neural_embeddings.html">Structural Deep Network Embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_Graph_Neural_Network.html">🧠 Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_1GNN_Types.html">Graph Neural Network</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="04_2_Graph_Neural_Network.html">Unsupervised Graph Representation Learning using GCN (Graph Convolutional Network)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter04/01_Feature_based_methods.html">Chapter 4 : Supervised Graph Learning</a></li>
@@ -605,7 +607,7 @@ L = \frac{1}{2} \sum_{(i,j)\in E} \left(A_{i,j} - Y_{i,:} Y_{j,:}^\top \right)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/88cae2e950f41867eace002a0c5d7f44c02a495f50183165af9ff4644e7e26a0.png" src="../../_images/88cae2e950f41867eace002a0c5d7f44c02a495f50183165af9ff4644e7e26a0.png" />
+<img alt="../../_images/d008f45fca0546a9905e1b75d505c2573ab08340ade106e5004a7e686a144fe8.png" src="../../_images/d008f45fca0546a9905e1b75d505c2573ab08340ade106e5004a7e686a144fe8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -637,34 +639,34 @@ L = \frac{1}{2} \sum_{(i,j)\in E} \left(A_{i,j} - Y_{i,:} Y_{j,:}^\top \right)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d90d659414a48b0cb9375dab9dd28a8aa0274a5e879344dbf1edee0dc7e5fe86.png" src="../../_images/d90d659414a48b0cb9375dab9dd28a8aa0274a5e879344dbf1edee0dc7e5fe86.png" />
+<img alt="../../_images/4afb6082afb4c885ea01168efa350c311e3b2e696376e8983de9c34c9d064dec.png" src="../../_images/4afb6082afb4c885ea01168efa350c311e3b2e696376e8983de9c34c9d064dec.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>./gf not found. Reverting to Python implementation. Please compile gf, place node2vec in the path and grant executable permission
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00123572,  0.00050976],
-       [ 0.00123904,  0.00051093],
-       [ 0.00123821,  0.00050808],
-       [ 0.00123678,  0.00051318],
-       [ 0.00125496,  0.0005313 ],
-       [ 0.0011731 ,  0.00064486],
-       [ 0.00129085,  0.00021385],
-       [ 0.00175742,  0.00030593],
-       [-0.00104785,  0.00127027],
-       [ 0.00257275, -0.00401576],
-       [-0.0003569 , -0.00897749],
-       [-0.00430305, -0.00874746],
-       [-0.00207915, -0.0021629 ],
-       [-0.00086849, -0.00399197],
-       [-0.00213831, -0.0095627 ],
-       [-0.00213662, -0.00956365],
-       [-0.00213649, -0.00956169],
-       [-0.00215309, -0.0095694 ],
-       [-0.0021372 , -0.00952151],
-       [-0.00218944, -0.00956293],
-       [-0.00200096, -0.00953513],
-       [-0.00224088, -0.01004711],
-       [ 0.00019574, -0.00886601],
-       [-0.00292781, -0.01427695]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00797962,  0.00177522],
+       [ 0.00798072,  0.00177288],
+       [ 0.00797787,  0.00177092],
+       [ 0.00799205,  0.00177966],
+       [ 0.00795859,  0.00181474],
+       [ 0.00807351,  0.00174836],
+       [ 0.0080004 ,  0.00212608],
+       [ 0.00784755,  0.00096032],
+       [ 0.00665495,  0.00238659],
+       [ 0.00938742,  0.00409395],
+       [ 0.00668658,  0.00461849],
+       [ 0.00840207,  0.00289484],
+       [ 0.00885585,  0.00536791],
+       [ 0.00679136, -0.00057933],
+       [ 0.00371771, -0.00826972],
+       [ 0.00371866, -0.0082728 ],
+       [ 0.00372165, -0.00827517],
+       [ 0.0037434 , -0.00826927],
+       [ 0.00367187, -0.00827677],
+       [ 0.00369606, -0.00839793],
+       [ 0.00382226, -0.00806536],
+       [ 0.00390149, -0.00794469],
+       [ 0.00333362, -0.00925432],
+       [ 0.00458086, -0.00958126]])
 </pre></div>
 </div>
 </div>
@@ -684,7 +686,7 @@ L = \frac{1}{2} \sum_{(i,j)\in E} \left(A_{i,j} - Y_{i,:} Y_{j,:}^\top \right)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/734c5aeff3cf6bc8a1517046174743773268cde363a8c64591aeffafe4d3c365.png" src="../../_images/734c5aeff3cf6bc8a1517046174743773268cde363a8c64591aeffafe4d3c365.png" />
+<img alt="../../_images/53386b6d55643e51add438fbc28bad54dcc860eec249eab58bcbd9de5dd268e5.png" src="../../_images/53386b6d55643e51add438fbc28bad54dcc860eec249eab58bcbd9de5dd268e5.png" />
 </div>
 </div>
 </section>
@@ -1049,7 +1051,7 @@ order an embedding is computed and concatenated in the final embedding matrix.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/77819029387df966f01c8ccbef6896b3dc5f3497143e5773694889c89f114493.png" src="../../_images/77819029387df966f01c8ccbef6896b3dc5f3497143e5773694889c89f114493.png" />
+<img alt="../../_images/135ae1eb58ca30b6df02122bdfb4ae92b0d189354df3820af9b6457611f21992.png" src="../../_images/135ae1eb58ca30b6df02122bdfb4ae92b0d189354df3820af9b6457611f21992.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1460,7 +1462,7 @@ Use the learned weights of the skip-gram model to extract a low-dimensional vect
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e7f9fa4850986c4020757c86709404d27543bd701d06b6cb9ddd3de138441690.png" src="../../_images/e7f9fa4850986c4020757c86709404d27543bd701d06b6cb9ddd3de138441690.png" />
+<img alt="../../_images/87348601de2f28a69dc75ec5efb0aba51905a0924dfd32e5809763bab521c3e8.png" src="../../_images/87348601de2f28a69dc75ec5efb0aba51905a0924dfd32e5809763bab521c3e8.png" />
 </div>
 </div>
 </section>
@@ -1593,46 +1595,25 @@ If we reduce these embeddings to 2 dimensions (e.g., using PCA), the relative di
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/58b6d0827406a984ebcc2b65a60419714c40a0730f057c39387922b748650559.png" src="../../_images/58b6d0827406a984ebcc2b65a60419714c40a0730f057c39387922b748650559.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing transition probabilities:   0%|                                                       | 0/24 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing transition probabilities:   0%|                                                                              | 0/24 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing transition probabilities: 100%|████████████████████████████████████████████| 24/24 [00:00&lt;00:00, 1517.04it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing transition probabilities: 100%|███████████████████████████████████████████████████████████████████| 24/24 [00:00&lt;00:00, 7945.01it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):   0%|                                                                | 0/10 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):   0%|                                                                                       | 0/10 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  20%|███████████▏                                            | 2/10 [00:00&lt;00:01,  7.90it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  40%|███████████████████████████████▌                                               | 4/10 [00:00&lt;00:00, 39.21it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  30%|████████████████▊                                       | 3/10 [00:00&lt;00:01,  6.54it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  80%|███████████████████████████████████████████████████████████████▏               | 8/10 [00:00&lt;00:00, 28.60it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  40%|██████████████████████▍                                 | 4/10 [00:00&lt;00:01,  5.43it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  50%|████████████████████████████                            | 5/10 [00:00&lt;00:00,  5.01it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  60%|█████████████████████████████████▌                      | 6/10 [00:01&lt;00:00,  4.96it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  70%|███████████████████████████████████████▏                | 7/10 [00:01&lt;00:00,  4.81it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  80%|████████████████████████████████████████████▊           | 8/10 [00:01&lt;00:00,  4.31it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1):  90%|██████████████████████████████████████████████████▍     | 9/10 [00:01&lt;00:00,  3.95it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1): 100%|███████████████████████████████████████████████████████| 10/10 [00:02&lt;00:00,  4.19it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1): 100%|███████████████████████████████████████████████████████| 10/10 [00:02&lt;00:00,  4.26it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating walks (CPU: 1): 100%|██████████████████████████████████████████████████████████████████████████████| 10/10 [00:00&lt;00:00, 26.31it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1657,7 +1638,7 @@ If we reduce these embeddings to 2 dimensions (e.g., using PCA), the relative di
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/28f9a021fdbf9dd416bd5b2e8101ebb8aac27f40a9c2d229aa999659cd77f2b5.png" src="../../_images/28f9a021fdbf9dd416bd5b2e8101ebb8aac27f40a9c2d229aa999659cd77f2b5.png" />
+<img alt="../../_images/8afcc6e4455559e9f44a4c6ece9d79d372a28a0c622c7f15b76957e5e98c8c11.png" src="../../_images/8afcc6e4455559e9f44a4c6ece9d79d372a28a0c622c7f15b76957e5e98c8c11.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1667,7 +1648,7 @@ If we reduce these embeddings to 2 dimensions (e.g., using PCA), the relative di
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 3.2156763 -1.1699548]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.3029191 -3.5054574]
 </pre></div>
 </div>
 </div>
@@ -1767,7 +1748,7 @@ Rather than training a new model from scratch, it derives the embedding of an ed
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/476347fc3f8a1aa3d3f6f67ef76bd87d8d41e94adfc3fa2df69fb696b1174093.png" src="../../_images/476347fc3f8a1aa3d3f6f67ef76bd87d8d41e94adfc3fa2df69fb696b1174093.png" />
+<img alt="../../_images/8b0036811d5d7925d7b417a03a790c950024756cb428c3fc020f76cfaaabefb1.png" src="../../_images/8b0036811d5d7925d7b417a03a790c950024756cb428c3fc020f76cfaaabefb1.png" />
 </div>
 </div>
 </section>
@@ -1860,7 +1841,7 @@ Graph2Vec learns embeddings for entire graphs based on their substructures.</p><
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e1516f86a2840bce21f5e08e2cf32a0e61337216644c8b3dd107d4f7951e067.png" src="../../_images/6e1516f86a2840bce21f5e08e2cf32a0e61337216644c8b3dd107d4f7951e067.png" />
+<img alt="../../_images/9e2500800e944adf75135f76f41c10e8b76d5f66d9a62c0929baa7cc618eb894.png" src="../../_images/9e2500800e944adf75135f76f41c10e8b76d5f66d9a62c0929baa7cc618eb894.png" />
 </div>
 </div>
 </section>
